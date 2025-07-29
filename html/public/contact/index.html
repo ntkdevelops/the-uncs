@@ -91,7 +91,8 @@
             
             <div class="contact-form">
                 <h2>Request Free Estimate</h2>
-                <form>
+                <div id="form-message" class="form-message" style="display: none;"></div>
+                <form id="contact-form">
                     <div class="form-group">
                         <label for="name">Full Name *</label>
                         <input type="text" id="name" name="name" required>
@@ -123,7 +124,7 @@
                         <label for="message">Project Description *</label>
                         <textarea id="message" name="message" rows="5" placeholder="Please describe your project or service needs..." required></textarea>
                     </div>
-                    <button type="submit" class="btn-primary">Send Request</button>
+                    <button type="submit" class="btn-primary" id="submit-btn">Send Request</button>
                 </form>
             </div>
         </div>
@@ -132,5 +133,71 @@
 
 
     <script src="https://the-uncs.vercel.app/js/main.js"></script>
+    <script>
+        // Contact form submission handler
+        document.getElementById('contact-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const messageDiv = document.getElementById('form-message');
+            const form = this;
+            
+            // Show loading state
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            messageDiv.style.display = 'none';
+            
+            try {
+                // Collect form data
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+                
+                // Send to server
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                // Show message
+                messageDiv.style.display = 'block';
+                messageDiv.style.padding = '15px';
+                messageDiv.style.borderRadius = '5px';
+                messageDiv.style.marginBottom = '20px';
+                
+                if (result.success) {
+                    messageDiv.style.backgroundColor = '#d4edda';
+                    messageDiv.style.color = '#155724';
+                    messageDiv.style.border = '1px solid #c3e6cb';
+                    messageDiv.textContent = result.message;
+                    form.reset(); // Clear the form
+                } else {
+                    messageDiv.style.backgroundColor = '#f8d7da';
+                    messageDiv.style.color = '#721c24';
+                    messageDiv.style.border = '1px solid #f5c6cb';
+                    messageDiv.textContent = result.message;
+                }
+                
+            } catch (error) {
+                console.error('Form submission error:', error);
+                messageDiv.style.display = 'block';
+                messageDiv.style.padding = '15px';
+                messageDiv.style.borderRadius = '5px';
+                messageDiv.style.marginBottom = '20px';
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.border = '1px solid #f5c6cb';
+                messageDiv.textContent = 'Network error. Please check your connection and try again.';
+            } finally {
+                // Reset button
+                submitBtn.textContent = 'Send Request';
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
 </body>
 </html>
