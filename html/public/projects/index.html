@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G&J Home Services</title>
+    
+    <link rel="stylesheet" href="https://the-uncs.vercel.app/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+            <div class="logo">
+                <a href="https://the-uncs.vercel.app">G&J Home Services</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="https://the-uncs.vercel.app">Home</a></li>
+                <li><a href="https://the-uncs.vercel.app/construction">Construction</a></li>
+                <li><a href="https://the-uncs.vercel.app/home-care">Home Care</a></li>
+                <li><a href="https://the-uncs.vercel.app/about">About Us</a></li>
+                <li><a href="https://the-uncs.vercel.app/projects">Projects</a></li>
+                <li><a href="https://the-uncs.vercel.app/contact">Contact</a></li>
+            </ul>
+            <div class="header-actions">
+                <div class="theme-switch" id="themeToggle" aria-label="Toggle dark mode">
+                    <input type="checkbox" class="theme-switch-checkbox" id="themeSwitchCheckbox">
+                    <label class="theme-switch-label" for="themeSwitchCheckbox">
+                        <span class="theme-switch-slider">
+                            <span class="theme-icon light-icon">☀️</span>
+                            <span class="theme-icon dark-icon">🌙</span>
+                        </span>
+                    </label>
+                </div>
+                <a href="https://the-uncs.vercel.app/contact" class="btn-primary btn-header">Free Estimate</a>
+            </div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        </div>
+    </header>
+    
+<div class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Our Projects</h1>
+            <p>Discover the quality and craftsmanship that defines our work</p>
+        </div>
+    </div>
+</div>
+
+<section class="projects-filter">
+    <div class="container">
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="construction">Construction</button>
+            <button class="filter-btn" data-filter="renovation">Renovations</button>
+            <button class="filter-btn" data-filter="maintenance">Maintenance</button>
+            <button class="filter-btn" data-filter="commercial">Commercial</button>
+        </div>
+    </div>
+</section>
+
+<section class="projects-gallery">
+    <div class="container">
+        <div class="projects-grid">
+            <!-- Construction Projects -->
+            <div class="project-card" data-category="construction">
+                <div class="project-image">
+                    <div class="placeholder-image">Modern Family Home<br><span class="project-year">2024</span></div>
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h3>Custom Family Residence</h3>
+                            <p>3,200 sq ft • New Construction</p>
+                            <button class="view-project-btn">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card" data-category="construction">
+                <div class="project-image">
+                    <div class="placeholder-image">Luxury Kitchen<br><span class="project-year">2024</span></div>
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h3>Executive Home Addition</h3>
+                            <p>1,800 sq ft • Home Extension</p>
+                            <button class="view-project-btn">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Renovation Projects -->
+            <div class="project-card" data-category="renovation">
+                <div class="project-image">
+                    <div class="placeholder-image">Kitchen Remodel<br><span class="project-year">2023</span></div>
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h3>Complete Kitchen Renovation</h3>
+                            <p>450 sq ft • Full Remodel</p>
+                            <button class="view-project-btn">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card" data-category="renovation">
+                <div class="project-image">
+                    <div class="placeholder-image">Bathroom Suite<br><span class="project-year">2023</span></div>
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h3>Master Bathroom Transformation</h3>
+                            <p>280 sq ft • Luxury Renovation</p>
+                            <button class="view-project-btn">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card" data-category="renovation">
+                <div class="project-image">
+                    <div class="placeholder-image">Living Room<br><span class="project-year">2023</span></div>
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h3>Open Concept Living Space</h3>
+                            <p>800 sq ft • Interior Renovation</p>
+                            <button class="view-project-btn">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Maintenance Projects -->
+            <div class="project-card" data-category="maintenance">
+                <div class="project-image">
+                    <div class="placeholder-image">Roof Repair<br><span class="project-year">2024</span></div>
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h3>Complete Roof Restoration</h3>
+                            <p>2,400 sq ft • Maintenance & Repair</p>
+                            <button class="view-project-btn">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card" data-category="maintenance">
+                <div class="project-image">
+                    <div class="placeholder-image">HVAC System<br><span class="project-year">2024</span></div>
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h3>HVAC System Upgrade</h3>
+                            <p>Whole House • System Installation</p>
+                            <button class="view-project-btn">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Commercial Projects -->
+            <div class="project-card" data-category="commercial">
+                <div class="project-image">
+                    <div class="placeholder-image">Office Building<br><span class="project-year">2023</span></div>
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h3>Corporate Office Renovation</h3>
+                            <p>5,000 sq ft • Commercial Space</p>
+                            <button class="view-project-btn">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-card" data-category="commercial">
+                <div class="project-image">
+                    <div class="placeholder-image">Retail Space<br><span class="project-year">2023</span></div>
+                    <div class="project-overlay">
+                        <div class="project-info">
+                            <h3>Retail Store Buildout</h3>
+                            <p>2,200 sq ft • Commercial Construction</p>
+                            <button class="view-project-btn">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="project-stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Emergency Service</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Let's discuss how we can bring your vision to life with the same quality and attention to detail.</p>
+            <a href="https://the-uncs.vercel.app/contact" class="btn-primary">Get Your Free Estimate</a>
+        </div>
+    </div>
+</section>
+
+
+    <script src="https://the-uncs.vercel.app/js/main.js"></script>
+</body>
+</html>

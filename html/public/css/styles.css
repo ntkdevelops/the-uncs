@@ -7,6 +7,7 @@
     --bg-secondary: #fef3e2;
     --text-primary: #9a3412;
     --text-secondary: #c2410c;
+    --text-tertiary: #58514f;
     --text-muted: #ea580c;
     --heading-primary: #431407;
     --heading-secondary: #7c2d12;
@@ -34,6 +35,7 @@
     --bg-secondary: #1e293b;
     --text-primary: #e0f2fe;
     --text-secondary: #bae6fd;
+    --text-tertiary: #889fb1;
     --text-muted: #7dd3fc;
     --heading-primary: #f0f9ff;
     --heading-secondary: #e0f2fe;
@@ -793,7 +795,7 @@ nav {
 .hero-content p {
     font-size: 1.25rem;
     margin-bottom: 40px;
-    color: #cbd5e1;
+    color: var(--text-tertiary);
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -1032,7 +1034,7 @@ nav {
     font-size: 2.75rem;
     font-weight: 700;
     margin-bottom: 60px;
-    color: #1e293b;
+    color: var(--heading-secondary);
     letter-spacing: -0.02em;
     line-height: 1.2;
 }

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G&J Home Services</title>
+    
+    <link rel="stylesheet" href="https://the-uncs.vercel.app/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+            <div class="logo">
+                <a href="https://the-uncs.vercel.app">G&J Home Services</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="https://the-uncs.vercel.app">Home</a></li>
+                <li><a href="https://the-uncs.vercel.app/construction">Construction</a></li>
+                <li><a href="https://the-uncs.vercel.app/home-care">Home Care</a></li>
+                <li><a href="https://the-uncs.vercel.app/about">About Us</a></li>
+                <li><a href="https://the-uncs.vercel.app/projects">Projects</a></li>
+                <li><a href="https://the-uncs.vercel.app/contact">Contact</a></li>
+            </ul>
+            <div class="header-actions">
+                <div class="theme-switch" id="themeToggle" aria-label="Toggle dark mode">
+                    <input type="checkbox" class="theme-switch-checkbox" id="themeSwitchCheckbox">
+                    <label class="theme-switch-label" for="themeSwitchCheckbox">
+                        <span class="theme-switch-slider">
+                            <span class="theme-icon light-icon">☀️</span>
+                            <span class="theme-icon dark-icon">🌙</span>
+                        </span>
+                    </label>
+                </div>
+                <a href="https://the-uncs.vercel.app/contact" class="btn-primary btn-header">Free Estimate</a>
+            </div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        </div>
+    </header>
+    
+<div class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>Contact Us</h1>
+            <p>Ready to start your project? Get in touch for a free estimate</p>
+        </div>
+    </div>
+</div>
+
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Get In Touch</h2>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>(555) 123-4567</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <h3>Email</h3>
+                        <p>info@gjhomeservices.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h3>Service Area</h3>
+                        <p>Greater Metropolitan Area<br>Within 50 miles of downtown</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🕒</div>
+                    <div>
+                        <h3>Business Hours</h3>
+                        <p>Monday - Friday: 7:00 AM - 6:00 PM<br>
+                           Saturday: 8:00 AM - 4:00 PM<br>
+                           Sunday: Emergency calls only</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h2>Request Free Estimate</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Needed *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service...</option>
+                            <option value="construction">New Construction</option>
+                            <option value="renovation">Renovation</option>
+                            <option value="maintenance">Home Maintenance</option>
+                            <option value="plumbing">Plumbing</option>
+                            <option value="electrical">Electrical</option>
+                            <option value="hvac">HVAC</option>
+                            <option value="painting">Painting</option>
+                            <option value="emergency">Emergency Repair</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Project Description *</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Please describe your project or service needs..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Send Request</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <script src="https://the-uncs.vercel.app/js/main.js"></script>
+</body>
+</html>
