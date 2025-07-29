@@ -9,7 +9,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static files from html/public folder
-app.use(express.static(path.join(__dirname, 'html', 'public')));
+app.use(express.static(path.join(__dirname, '..', 'html', 'public')));
+
+// Root route handler
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'html', 'public', 'index.html'));
+});
 
 // Function to create nodemailer transporter when needed
 function createTransporter() {
