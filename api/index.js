@@ -1,15 +1,24 @@
 const express = require('express');
-const path = require('path');
 const nodemailer = require('nodemailer');
 
 const app = express();
 
-// Middleware to parse JSON and form data
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files from html/public folder
-app.use(express.static(path.join(__dirname, '..', 'html', 'public')));
+// CORS middleware
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+    
+    if (req.method === 'OPTIONS') {
+        res.sendStatus(200);
+    } else {
+        next();
+    }
+});
 
 // Configure nodemailer transporter
 const transporter = nodemailer.createTransporter({
@@ -67,11 +76,6 @@ app.post('/api/contact', async (req, res) => {
             message: 'Sorry, there was an error sending your message. Please try again or call us directly.' 
         });
     }
-});
-
-// Handle all routes for static files
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'html', 'public', 'index.html'));
 });
 
 // Export the Express app for Vercel
