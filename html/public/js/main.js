@@ -49,56 +49,82 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Toggle the checkbox and trigger change event
+        // Toggle checkbox state and trigger change event
         themeSwitchCheckbox.checked = !themeSwitchCheckbox.checked;
         themeSwitchCheckbox.dispatchEvent(new Event('change'));
     });
-    
-    // Mobile Menu Toggle
+
+    // Mobile menu functionality
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelector('.nav-links');
     
-    if (mobileMenuToggle && navMenu) {
+    if (mobileMenuToggle && navLinks) {
         mobileMenuToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
             mobileMenuToggle.classList.toggle('active');
             
-            // Update aria-expanded for accessibility
-            const isExpanded = navMenu.classList.contains('active');
-            mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
-        });
-        
-        // Close mobile menu when clicking on nav links
-        const navLinks = navMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            // Animate hamburger icon with construction theme
+            const spans = this.querySelectorAll('span');
+            spans.forEach((span, index) => {
+                span.style.transform = navLinks.classList.contains('active') 
+                    ? `rotate(${index === 1 ? 45 : -45}deg)` 
+                    : 'rotate(0deg)';
+                span.style.backgroundColor = navLinks.classList.contains('active') 
+                    ? 'var(--construction-primary)' 
+                    : '';
             });
         });
         
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-                navMenu.classList.remove('active');
+        // Close mobile menu when clicking on a link
+        const navLinkItems = navLinks.querySelectorAll('a');
+        navLinkItems.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
                 mobileMenuToggle.classList.remove('active');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-            }
+            });
         });
+    } else {
+        console.warn('Mobile menu elements not found');
     }
-    
-    // Smooth scrolling for navigation links
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+
+    // Header scroll effect with enhanced animations
+    const header = document.querySelector('header');
+    let lastScrollY = window.scrollY;
+
+    function updateHeader() {
+        const currentScrollY = window.scrollY;
+        
+        if (currentScrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+        
+        // Hide header on scroll down, show on scroll up
+        if (currentScrollY > lastScrollY && currentScrollY > 200) {
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            header.style.transform = 'translateY(0)';
+        }
+        
+        lastScrollY = currentScrollY;
+    }
+
+    window.addEventListener('scroll', updateHeader);
+    window.addEventListener('load', updateHeader);
+
+    // Smooth scrolling for anchor links
+    const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
+    smoothScrollLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('href');
+            if (targetId === '#') return;
             
+            const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                const headerHeight = document.querySelector('header').offsetHeight;
-                const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                e.preventDefault();
+                const headerHeight = header.offsetHeight;
+                const targetPosition = targetElement.offsetTop - headerHeight;
                 
                 window.scrollTo({
                     top: targetPosition,
@@ -107,55 +133,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // Header scroll effect
-    const header = document.querySelector('header');
-    let lastScrollTop = 0;
-    
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-        
-        // Hide/show header on scroll
-        if (scrollTop > lastScrollTop && scrollTop > 200) {
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            header.style.transform = 'translateY(0)';
-        }
-        
-        lastScrollTop = scrollTop;
-    });
-    
-    // Service cards hover effect
-    const serviceCards = document.querySelectorAll('.service-card');
-    serviceCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
-    
-    // Project cards hover effect
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.05)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
-        });
-    });
-    
-    // Adjust body padding for fixed header
+
+    // Add body padding for fixed header
     function adjustBodyPadding() {
         const headerHeight = header.offsetHeight;
         document.body.style.paddingTop = headerHeight + 'px';
@@ -183,96 +162,85 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
     
-    // Contact form handling
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Basic validation
-            if (!data.name || !data.email || !data.message) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(data.email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-            
-            // Simulate form submission
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate API call
-            setTimeout(() => {
-                alert('Thank you for your message! We\'ll get back to you soon.');
-                this.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
-        });
-    }
-    
-    // Quote form handling
-    const quoteForm = document.getElementById('quoteForm');
-    if (quoteForm) {
-        quoteForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Basic validation
-            if (!data.name || !data.email || !data.service || !data.description) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-            
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(data.email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
-            
-            // Simulate form submission
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate API call
-            setTimeout(() => {
-                alert('Thank you for your quote request! We\'ll prepare a detailed estimate and get back to you within 24 hours.');
-                this.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
-        });
-    }
-    
-    // Add loading animation to images
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-        img.addEventListener('load', function() {
-            this.style.opacity = '1';
-        });
-        
-        // If image is already loaded
-        if (img.complete) {
-            img.style.opacity = '1';
-        }
+    // Add staggered animation delays for cards
+    document.querySelectorAll('.service-card, .feature-card, .value-card, .team-member, .project-card, .work-item').forEach((card, index) => {
+        card.style.transitionDelay = `${index * 0.1}s`;
     });
+
+    // Form submission handling (basic)
+    const contactForm = document.querySelector('form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Basic form validation
+            const requiredFields = contactForm.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.style.borderColor = '#ef4444';
+                } else {
+                    field.style.borderColor = '#d1d5db';
+                }
+            });
+            
+            if (isValid) {
+                // Here you would typically send the form data to a server
+                alert('Thank you for your message! We\'ll get back to you soon.');
+                contactForm.reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+    }
+    
+    // Project filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    if (filterButtons.length > 0 && projectCards.length > 0) {
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get filter value
+                const filterValue = this.getAttribute('data-filter');
+                
+                // Filter project cards
+                projectCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    
+                    if (filterValue === 'all' || cardCategory === filterValue) {
+                        card.style.display = 'block';
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        
+                        // Animate in
+                        setTimeout(() => {
+                            card.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        card.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(-20px)';
+                        
+                        // Hide after animation
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+    }
     
     // Animate project cards on scroll
     const projectObserver = new IntersectionObserver((entries) => {
@@ -288,84 +256,56 @@ document.addEventListener('DOMContentLoaded', function() {
     projectCards.forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
         projectObserver.observe(card);
     });
     
-    // Animate service cards on scroll
-    const serviceObserver = new IntersectionObserver((entries) => {
+    // Animate stats on scroll
+    const statNumbers = document.querySelectorAll('.stat-number');
+    const statsObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                const target = entry.target;
+                const finalValue = target.textContent;
+                const isPercentage = finalValue.includes('%');
+                const isTime = finalValue.includes('/');
+                
+                if (!isPercentage && !isTime) {
+                    const numericValue = parseInt(finalValue.replace('+', ''));
+                    animateNumber(target, 0, numericValue, 2000, '+');
+                } else if (isPercentage) {
+                    const numericValue = parseInt(finalValue.replace('%', ''));
+                    animateNumber(target, 0, numericValue, 2000, '%');
+                }
+                
+                statsObserver.unobserve(target);
             }
         });
     }, observerOptions);
     
-    // Observe service cards for animation
-    serviceCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        serviceObserver.observe(card);
+    statNumbers.forEach(stat => {
+        statsObserver.observe(stat);
     });
     
-    // Add parallax effect to hero section
-    const heroSection = document.querySelector('.hero');
-    if (heroSection) {
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const parallax = scrolled * 0.5;
-            heroSection.style.transform = `translateY(${parallax}px)`;
-        });
-    }
-    
-    // Add typing effect to hero title
-    const heroTitle = document.querySelector('.hero h1');
-    if (heroTitle) {
-        const text = heroTitle.textContent;
-        heroTitle.textContent = '';
-        let i = 0;
+    // Number animation function
+    function animateNumber(element, start, end, duration, suffix = '') {
+        const startTime = performance.now();
         
-        function typeWriter() {
-            if (i < text.length) {
-                heroTitle.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
+        function updateNumber(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing function
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            const current = Math.floor(start + (end - start) * easeOutQuart);
+            
+            element.textContent = current + suffix;
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateNumber);
             }
         }
         
-        // Start typing effect after a short delay
-        setTimeout(typeWriter, 500);
+        requestAnimationFrame(updateNumber);
     }
-    
-    // Add counter animation for statistics
-    const counters = document.querySelectorAll('.counter');
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const counter = entry.target;
-                const target = parseInt(counter.getAttribute('data-target'));
-                const increment = target / 100;
-                let current = 0;
-                
-                const updateCounter = () => {
-                    if (current < target) {
-                        current += increment;
-                        counter.textContent = Math.ceil(current);
-                        setTimeout(updateCounter, 20);
-                    } else {
-                        counter.textContent = target;
-                    }
-                };
-                
-                updateCounter();
-                counterObserver.unobserve(counter);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    counters.forEach(counter => {
-        counterObserver.observe(counter);
-    });
 });
