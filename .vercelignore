@@ -1,0 +1,8 @@
+html/config.toml
+html/content/
+html/themes/
+html/templates/
+html/static/
+*.toml
+*.md
+!README.md
