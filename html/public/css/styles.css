@@ -1898,17 +1898,7 @@ nav {
         gap: 10px;
     }
 
-    .nav-links li {
-        margin: 0;
-    }
-
-    .nav-links li a {
-        padding: 0;
-    }
-
-    .nav-links{
-        top: 160px;
-    }
+  
 }
 
 /* Contact Section */
@@ -2123,7 +2113,7 @@ nav {
     
     .nav-links {
         position: fixed;
-        top: 80px;
+        top: 160px;
         left: -100%;
         width: 100%;
         height: calc(100vh - 80px);
@@ -2145,14 +2135,14 @@ nav {
     }
     
     .nav-links li {
-        margin: 0.8rem 0;
+        margin: 0;
         width: 90%;
         max-width: 300px;
     }
     
     .nav-links a {
         font-size: 1.1rem;
-        padding: 1rem 1.5rem;
+        padding: 0.2rem 1.5rem;
         width: 100%;
         text-align: center;
         border-radius: 12px;
@@ -2163,6 +2153,7 @@ nav {
         letter-spacing: 0.5px;
         transition: var(--transition-smooth);
     }
+    
     
     .nav-links a:hover {
         background: var(--gradient-construction);
