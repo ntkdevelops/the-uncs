@@ -16,5 +16,8 @@
     "index.js": {
       "maxDuration": 10
     }
-  }
+  },
+  "framework": null,
+  "installCommand": "npm install",
+  "buildCommand": null
 }
