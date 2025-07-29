@@ -25,6 +25,66 @@
     --backdrop-blur: blur(20px);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Additional color variables for hardcoded colors */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-transparent: transparent;
+    --rgba-white-95: rgba(255, 255, 255, 0.95);
+    --rgba-white-9: rgba(255, 255, 255, 0.9);
+    --rgba-white-8: rgba(255, 255, 255, 0.8);
+    --rgba-white-2: rgba(255, 255, 255, 0.2);
+    --rgba-white-1: rgba(255, 255, 255, 0.1);
+    --rgba-white-05: rgba(255, 255, 255, 0.05);
+    --rgba-black-8: rgba(0, 0, 0, 0.8);
+    --rgba-black-6: rgba(0, 0, 0, 0.6);
+    --rgba-black-3: rgba(0, 0, 0, 0.3);
+    --rgba-black-2: rgba(0, 0, 0, 0.2);
+    --rgba-black-15: rgba(0, 0, 0, 0.15);
+    --rgba-black-1: rgba(0, 0, 0, 0.1);
+    --rgba-black-08: rgba(0, 0, 0, 0.08);
+    --slate-900: #0f172a;
+    --slate-800: #1e293b;
+    --slate-700: #334155;
+    --slate-600: #475569;
+    --slate-500: #64748b;
+    --slate-400: #94a3b8;
+    --slate-300: #cbd5e1;
+    --slate-200: #e2e8f0;
+    --slate-100: #f1f5f9;
+    --slate-50: #f8fafc;
+    --blue-600: #3b82f6;
+    --blue-700: #1d4ed8;
+    --purple-600: #8b5cf6;
+    --purple-700: #7c3aed;
+    --brown-600: #a0522d;
+    --gray-600: #666666;
+    --navy-900: #1a1a2e;
+    --navy-800: #16213e;
+    --navy-700: #0f3460;
+    --gradient-purple-blue: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-dark-navy: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    --gradient-dark-slate: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --gradient-light-slate: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    --gradient-light-gray: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    --rgba-orange-08: rgba(251, 146, 60, 0.08);
+    --rgba-orange-06: rgba(234, 88, 12, 0.06);
+    --rgba-blue-15: rgba(59, 130, 246, 0.15);
+    --rgba-blue-12: rgba(29, 78, 216, 0.12);
+    --rgba-blue-8: rgba(59, 130, 246, 0.8);
+    --rgba-blue-4: rgba(59, 130, 246, 0.4);
+    --rgba-blue-3: rgba(59, 130, 246, 0.3);
+    --rgba-blue-2: rgba(59, 130, 246, 0.2);
+    --rgba-blue-1: rgba(59, 130, 246, 0.1);
+    --rgba-blue-05: rgba(59, 130, 246, 0.05);
+    --rgba-purple-2: rgba(139, 92, 246, 0.2);
+    --rgba-purple-1: rgba(139, 92, 246, 0.1);
+    --rgba-purple-05: rgba(139, 92, 246, 0.05);
+    --rgba-orange-3: rgba(217, 119, 6, 0.3);
+    --rgba-orange-2: rgba(217, 119, 6, 0.2);
+    --rgba-brown-1: rgba(139, 69, 19, 0.1);
+    --rgba-slate-95: rgba(15, 23, 42, 0.95);
+    --rgba-slate-98: rgba(15, 23, 42, 0.98);
 }
 
 [data-theme="dark"] {
@@ -94,13 +154,13 @@ body {
 }
 
 [data-theme="light"] body {
-    background-image: radial-gradient(circle at 20% 80%, rgba(251, 146, 60, 0.08) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 20%, rgba(234, 88, 12, 0.06) 0%, transparent 50%);
+    background-image: radial-gradient(circle at 20% 80%, var(--rgba-orange-08) 0%, var(--color-transparent) 50%),
+                      radial-gradient(circle at 80% 20%, var(--rgba-orange-06) 0%, var(--color-transparent) 50%);
 }
 
 [data-theme="dark"] body {
-    background-image: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 20%, rgba(29, 78, 216, 0.12) 0%, transparent 50%);
+    background-image: radial-gradient(circle at 20% 80%, var(--rgba-blue-15) 0%, var(--color-transparent) 50%),
+                      radial-gradient(circle at 80% 20%, var(--rgba-blue-12) 0%, var(--color-transparent) 50%);
 }
 
 /* Perfect Container Alignment */
@@ -190,8 +250,8 @@ section p {
 /* Primary Button with Theme Colors */
 .btn-primary {
     background: var(--gradient-construction);
-    color: #ffffff;
-    border: 2px solid transparent;
+    color: var(--color-white);
+    border: 2px solid var(--color-transparent);
     box-shadow: 0 4px 12px var(--shadow-medium);
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -206,7 +266,7 @@ section p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%);
+    background: linear-gradient(45deg, var(--rgba-white-1) 25%, var(--color-transparent) 25%, var(--color-transparent) 50%, var(--rgba-white-1) 50%, var(--rgba-white-1) 75%, var(--color-transparent) 75%);
     background-size: 20px 20px;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -226,7 +286,7 @@ section p {
 .btn-primary:active {
     transform: translateY(-1px);
     transition: var(--transition-bounce);
-    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+    box-shadow: 0 4px 12px var(--rgba-orange-3);
     animation: none;
 }
 
@@ -263,7 +323,7 @@ section p {
 }
 
 .btn-secondary:hover {
-    color: white;
+    color: var(--color-white);
     border-color: var(--construction-secondary);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px var(--shadow-medium);
@@ -271,7 +331,7 @@ section p {
 
 /* Outline Button */
 .btn-outline {
-    background: transparent;
+    background: var(--color-transparent);
     color: var(--text-primary);
     border: 2px solid var(--text-primary);
 }
@@ -292,7 +352,7 @@ section p {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, var(--color-transparent), var(--rgba-white-2), var(--color-transparent));
     transition: left 0.6s;
 }
 
@@ -438,7 +498,7 @@ img {
 
 /* Header Styles */
 header {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--rgba-white-95);
     backdrop-filter: var(--backdrop-blur);
     -webkit-backdrop-filter: var(--backdrop-blur);
     padding: 20px 0;
@@ -453,17 +513,17 @@ header {
 }
 
 [data-theme="dark"] header {
-    background: rgba(15, 23, 42, 0.95);
+    background: var(--rgba-slate-95);
 }
 
 header.scrolled {
     padding: 15px 0;
     box-shadow: 0 10px 30px var(--shadow-medium);
-    border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+    border-bottom: 1px solid var(--rgba-blue-1);
 }
 
 [data-theme="dark"] header.scrolled {
-    background: rgba(15, 23, 42, 0.98);
+    background: var(--rgba-slate-98);
 }
 
 nav {
@@ -510,7 +570,7 @@ nav {
     border: 2px solid var(--border-color);
     border-radius: 30px;
     transition: all 0.3s ease;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 2px 8px var(--shadow-light);
+    box-shadow: inset 0 2px 4px var(--rgba-black-1), 0 2px 8px var(--shadow-light);
 }
 
 .theme-switch-slider {
@@ -525,7 +585,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 6px var(--rgba-black-2);
     font-size: 12px;
     z-index: 1;
 }
@@ -541,7 +601,7 @@ nav {
 }
 
 .theme-switch:hover .theme-switch-label {
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 12px var(--shadow-medium);
+    box-shadow: inset 0 2px 4px var(--rgba-black-1), 0 4px 12px var(--shadow-medium);
     transform: scale(1.05);
 }
 
@@ -590,7 +650,7 @@ nav {
 [data-theme="dark"] .dark-icon {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
-    filter: drop-shadow(0 0 2px rgba(59, 130, 246, 0.8));
+    filter: drop-shadow(0 0 2px var(--rgba-blue-8));
 }
 
 /* Logo Styles */
@@ -704,22 +764,22 @@ nav {
 
 .cta-button {
     background: var(--gradient-construction);
-    color: white;
+    color: var(--color-white);
     padding: 12px 24px;
     border-radius: 50px;
     font-weight: 600;
     font-size: 0.9rem;
     border: none;
-    box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 4px 20px var(--rgba-blue-3);
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .cta-button:hover {
     background: var(--gradient-construction);
-    color: white;
+    color: var(--color-white);
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 8px 30px var(--rgba-blue-4);
 }
 
 /* Hero Section with Construction Theme */
@@ -756,8 +816,8 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 30%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 30% 70%, var(--rgba-blue-1) 0%, var(--color-transparent) 50%),
+                radial-gradient(circle at 70% 30%, var(--rgba-purple-1) 0%, var(--color-transparent) 50%);
     pointer-events: none;
     transition: var(--transition-smooth);
 }
@@ -767,8 +827,8 @@ nav {
 }
 
 [data-theme="dark"] .hero::before {
-    background: radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 70% 30%, rgba(139, 92, 246, 0.2) 0%, transparent 50%);
+    background: radial-gradient(circle at 30% 70%, var(--rgba-blue-2) 0%, var(--color-transparent) 50%),
+                radial-gradient(circle at 70% 30%, var(--rgba-purple-2) 0%, var(--color-transparent) 50%);
 }
 
 .hero-content {
@@ -866,7 +926,7 @@ nav {
 
 .work-item:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(217, 119, 6, 0.2);
+    box-shadow: 0 15px 40px var(--rgba-orange-2);
     border-color: var(--construction-primary);
 }
 
@@ -881,11 +941,11 @@ nav {
 }
 
 .placeholder-work {
-    color: white;
+    color: var(--color-white);
     font-size: 1.2rem;
     font-weight: 600;
     text-align: center;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 2px 4px var(--rgba-black-3);
 }
 
 .work-image::after {
@@ -895,7 +955,7 @@ nav {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, var(--color-transparent), var(--rgba-white-2), var(--color-transparent));
     transition: left 0.6s;
 }
 
@@ -923,7 +983,7 @@ nav {
 .work-category {
     display: inline-block;
     background: var(--gradient-construction);
-    color: white;
+    color: var(--color-white);
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 0.85rem;
@@ -1118,8 +1178,8 @@ nav {
 /* Why Choose Us Section */
 .why-choose-us {
     padding: 60px 0;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    color: white;
+    background: var(--gradient-dark-slate);
+    color: var(--color-white);
     position: relative;
     overflow: hidden;
 }
@@ -1132,8 +1192,8 @@ nav {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 70% 30%, rgba(139, 92, 246, 0.2) 0%, transparent 50%);
+        radial-gradient(circle at 30% 70%, var(--rgba-blue-2) 0%, var(--color-transparent) 50%),
+        radial-gradient(circle at 70% 30%, var(--rgba-purple-2) 0%, var(--color-transparent) 50%);
     pointer-events: none;
 }
 
@@ -1168,7 +1228,7 @@ nav {
 .benefits-list li {
     padding: 12px 0;
     font-size: 1.1rem;
-    color: #cbd5e1;
+    color: var(--slate-300);
     position: relative;
     padding-left: 30px;
 }
@@ -1189,7 +1249,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--color-white);
     font-size: 1.2rem;
     font-weight: 600;
     border: 1px solid var(--border-color);
@@ -1211,7 +1271,7 @@ nav {
 .story-content h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--slate-800);
     margin-bottom: 30px;
     letter-spacing: -0.02em;
 }
@@ -1219,7 +1279,7 @@ nav {
 .story-content p {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #64748b;
+    color: var(--slate-500);
     margin-bottom: 24px;
 }
 
@@ -1229,14 +1289,14 @@ nav {
 
 .family-values {
     padding: 100px 0;
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    background: var(--gradient-light-gray);
 }
 
 .family-values h2 {
     text-align: center;
     font-size: 2.75rem;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--slate-800);
     margin-bottom: 60px;
     letter-spacing: -0.02em;
 }
@@ -1321,7 +1381,7 @@ nav {
     text-align: center;
     font-size: 2.75rem;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--slate-800);
     margin-bottom: 60px;
     letter-spacing: -0.02em;
 }
@@ -1383,7 +1443,7 @@ nav {
 
 .team-member:hover .member-photo {
     transform: scale(1.05);
-    border-color: #3b82f6;
+    border-color: var(--blue-600);
 }
 
 .member-photo .placeholder-image {
@@ -1393,7 +1453,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--color-white);
     font-weight: 600;
     border-radius: 50%;
 }
@@ -1409,7 +1469,7 @@ nav {
 .member-title {
     font-size: 1rem;
     font-weight: 500;
-    color: #3b82f6;
+    color: var(--blue-600);
     margin-bottom: 16px;
 }
 
@@ -1420,8 +1480,8 @@ nav {
 
 .cta-section {
     padding: 100px 0;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    color: white;
+    background: var(--gradient-dark-slate);
+    color: var(--color-white);
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -1435,8 +1495,8 @@ nav {
     right: 0;
     bottom: 0;
     background: 
-        radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 70% 30%, rgba(139, 92, 246, 0.2) 0%, transparent 50%);
+        radial-gradient(circle at 30% 70%, var(--rgba-blue-2) 0%, var(--color-transparent) 50%),
+        radial-gradient(circle at 70% 30%, var(--rgba-purple-2) 0%, var(--color-transparent) 50%);
     pointer-events: none;
 }
 
@@ -1460,14 +1520,14 @@ nav {
 
 .cta-content p {
     font-size: 1.25rem;
-    color: #cbd5e1;
+    color: var(--slate-300);
     margin-bottom: 40px;
     line-height: 1.6;
 }
 
 /* Projects Filter Section */
 .projects-filter {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background: var(--gradient-light-slate);
     padding: 40px 0;
     border-bottom: 1px solid rgba(148, 163, 184, 0.2);
 }
@@ -1480,9 +1540,9 @@ nav {
 }
 
 .filter-btn {
-    background: rgba(255, 255, 255, 0.9);
-    border: 2px solid rgba(59, 130, 246, 0.2);
-    color: #475569;
+    background: var(--rgba-white-9);
+    border: 2px solid var(--rgba-blue-2);
+    color: var(--slate-600);
     padding: 12px 24px;
     border-radius: 50px;
     font-weight: 600;
@@ -1502,7 +1562,7 @@ nav {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+    background: linear-gradient(90deg, var(--color-transparent), var(--rgba-blue-1), var(--color-transparent));
     transition: left 0.5s;
 }
 
@@ -1518,14 +1578,14 @@ nav {
 
 .filter-btn.active {
     background: var(--gradient-construction);
-    color: white;
+    color: var(--color-white);
     border-color: var(--construction-primary);
     box-shadow: var(--shadow-medium);
 }
 
 /* Projects Gallery */
 .projects-gallery {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background: var(--gradient-light-slate);
     padding: 80px 0;
     position: relative;
 }
@@ -1537,8 +1597,8 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+    background: radial-gradient(circle at 20% 80%, var(--rgba-blue-05) 0%, var(--color-transparent) 50%),
+                radial-gradient(circle at 80% 20%, var(--rgba-purple-05) 0%, var(--color-transparent) 50%);
     pointer-events: none;
 }
 
@@ -1551,19 +1611,19 @@ nav {
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--rgba-white-95);
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px var(--rgba-black-08);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--rgba-white-2);
 }
 
 .project-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 40px var(--rgba-black-15);
 }
 
 .project-image {
@@ -1575,11 +1635,11 @@ nav {
 .placeholder-image {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--gradient-purple-blue);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: var(--color-white);
     font-size: 24px;
     font-weight: 700;
     text-align: center;
@@ -1594,10 +1654,10 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%),
-                linear-gradient(-45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%),
-                linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%),
-                linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.1) 75%);
+    background: linear-gradient(45deg, var(--rgba-white-1) 25%, var(--color-transparent) 25%),
+                linear-gradient(-45deg, var(--rgba-white-1) 25%, var(--color-transparent) 25%),
+                linear-gradient(45deg, var(--color-transparent) 75%, var(--rgba-white-1) 75%),
+                linear-gradient(-45deg, var(--color-transparent) 75%, var(--rgba-white-1) 75%);
     background-size: 20px 20px;
     background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
     opacity: 0.3;
@@ -1615,7 +1675,7 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+    background: linear-gradient(135deg, var(--rgba-black-8) 0%, var(--rgba-black-6) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1630,7 +1690,7 @@ nav {
 
 .project-info {
     text-align: center;
-    color: white;
+    color: var(--color-white);
     padding: 32px;
     transform: translateY(20px);
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1644,7 +1704,7 @@ nav {
     font-size: 24px;
     font-weight: 700;
     margin-bottom: 8px;
-    color: white;
+    color: var(--color-white);
 }
 
 .project-info p {
@@ -1655,7 +1715,7 @@ nav {
 
 .view-project-btn {
     background: var(--gradient-construction);
-    color: white;
+    color: var(--color-white);
     border: none;
     padding: 12px 24px;
     border-radius: 50px;
@@ -1674,7 +1734,7 @@ nav {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    background: linear-gradient(90deg, var(--color-transparent), var(--rgba-white-2), var(--color-transparent));
     transition: left 0.5s;
 }
 
@@ -1684,12 +1744,12 @@ nav {
 
 .view-project-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 8px 25px var(--rgba-blue-4);
 }
 
 /* Project Stats Section */
 .project-stats {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    background: var(--gradient-dark-navy);
     padding: 80px 0;
     position: relative;
     overflow: hidden;
@@ -1702,8 +1762,8 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 70%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 30%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    background: radial-gradient(circle at 30% 70%, var(--rgba-blue-1) 0%, var(--color-transparent) 50%),
+                radial-gradient(circle at 70% 30%, var(--rgba-purple-1) 0%, var(--color-transparent) 50%);
     pointer-events: none;
 }
 
@@ -1718,10 +1778,10 @@ nav {
 .stat-item {
     text-align: center;
     padding: 32px 24px;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--rgba-white-05);
     border-radius: 20px;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--rgba-white-1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
@@ -1734,7 +1794,7 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    background: linear-gradient(135deg, var(--rgba-blue-1) 0%, var(--rgba-purple-1) 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -1745,13 +1805,13 @@ nav {
 
 .stat-item:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 30px var(--rgba-black-2);
 }
 
 .stat-number {
     font-size: 48px;
     font-weight: 800;
-    color: #3b82f6;
+    color: var(--blue-600);
     margin-bottom: 8px;
     position: relative;
     z-index: 1;
@@ -1759,7 +1819,7 @@ nav {
 
 .stat-label {
     font-size: 16px;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--rgba-white-8);
     font-weight: 500;
     position: relative;
     z-index: 1;
@@ -1900,7 +1960,7 @@ nav {
     padding: 20px;
     background: var(--bg-secondary);
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(139, 69, 19, 0.1);
+    box-shadow: 0 4px 10px var(--rgba-brown-1);
 }
 
 .contact-icon {
@@ -1910,14 +1970,14 @@ nav {
 }
 
 .contact-item h3 {
-    color: #A0522D;
+    color: var(--brown-600);
     margin: 0 0 5px 0;
     font-size: 1.2rem;
 }
 
 .contact-item p {
     margin: 0;
-    color: #666;
+    color: var(--gray-600);
     line-height: 1.5;
 }
 
@@ -1973,8 +2033,8 @@ nav {
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    border-color: var(--blue-600);
+    box-shadow: 0 0 0 3px var(--rgba-blue-1);
     transform: translateY(-2px);
 }
 
@@ -2098,7 +2158,7 @@ nav {
         transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1000;
         border-top: 2px solid var(--border-color);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 20px var(--rgba-black-1);
     }
     
     .nav-links.active {
@@ -2130,7 +2190,7 @@ nav {
         color: white;
         border-color: var(--construction-secondary);
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(217, 119, 6, 0.3);
+        box-shadow: 0 6px 20px var(--rgba-orange-3);
     }
     
     .nav-links a::after {
