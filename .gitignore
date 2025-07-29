@@ -1,0 +1,11 @@
+# Node.js dependencies
+node_modules/
+
+# Hugo/Zola static site generator files
+html/config.toml
+html/content/
+html/themes/
+html/templates/
+html/static/
+*.toml
+*.md
