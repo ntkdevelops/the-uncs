@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static files from html/public folder
-app.use(express.static(path.join(__dirname, '..', 'html', 'public')));
+app.use(express.static(path.join(__dirname, 'html', 'public')));
 
 // Configure nodemailer transporter
 const transporter = nodemailer.createTransporter({
