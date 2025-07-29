@@ -1905,6 +1905,10 @@ nav {
     .nav-links li a {
         padding: 0;
     }
+
+    .nav-links{
+        top: 160px;
+    }
 }
 
 /* Contact Section */
