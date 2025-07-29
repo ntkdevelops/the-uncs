@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }}{% else %}G&J Home Services{% endif %}</title>
+    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+    <link rel="stylesheet" href="{{ get_url(path="css/styles.css") }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+            <div class="logo">
+                <a href="{{ get_url(path="/") }}">G&J Home Services</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ get_url(path="/") }}">Home</a></li>
+                <li><a href="{{ get_url(path="/construction/") }}">Construction</a></li>
+                <li><a href="{{ get_url(path="/home-care/") }}">Home Care</a></li>
+                <li><a href="{{ get_url(path="/about/") }}">About Us</a></li>
+                <li><a href="{{ get_url(path="/projects/") }}">Projects</a></li>
+                <li><a href="{{ get_url(path="/contact/") }}">Contact</a></li>
+            </ul>
+            <div class="header-actions">
+                <div class="theme-switch" id="themeToggle" aria-label="Toggle dark mode">
+                    <input type="checkbox" class="theme-switch-checkbox" id="themeSwitchCheckbox">
+                    <label class="theme-switch-label" for="themeSwitchCheckbox">
+                        <span class="theme-switch-slider">
+                            <span class="theme-icon light-icon">☀️</span>
+                            <span class="theme-icon dark-icon">🌙</span>
+                        </span>
+                    </label>
+                </div>
+                <a href="{{ get_url(path="/contact/") }}" class="btn-primary btn-header">Free Estimate</a>
+            </div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        </div>
+    </header>
+    {% block content %}{% endblock content %}
+
+    <script src="{{ get_url(path="js/main.js") }}"></script>
+</body>
+</html>
