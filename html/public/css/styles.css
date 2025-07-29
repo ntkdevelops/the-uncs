@@ -1897,6 +1897,14 @@ nav {
         align-items: flex-start;
         gap: 10px;
     }
+
+    .nav-links li {
+        margin: 0;
+    }
+
+    .nav-links li a {
+        padding: 0;
+    }
 }
 
 /* Contact Section */
