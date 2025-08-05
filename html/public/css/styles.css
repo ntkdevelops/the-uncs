@@ -2487,6 +2487,105 @@ nav {
     color: var(--construction-primary);
 }
 
+/* Privacy Policy Styles */
+.privacy-content {
+    padding: 80px 0;
+    background: var(--bg-primary);
+}
+
+.privacy-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.privacy-section {
+    margin-bottom: 40px;
+    padding: 30px;
+    background: var(--secondary-bg);
+    border-radius: 15px;
+    border: 2px solid var(--border-color);
+    box-shadow: 0 4px 20px var(--shadow-light);
+    transition: var(--transition-smooth);
+}
+
+.privacy-section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px var(--shadow-medium);
+    border-color: var(--construction-primary);
+}
+
+.privacy-section h2 {
+    color: var(--heading-primary);
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--construction-primary);
+    letter-spacing: -0.01em;
+}
+
+.privacy-section p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 16px;
+    font-size: 1rem;
+}
+
+.privacy-section ul {
+    margin: 16px 0;
+    padding-left: 24px;
+}
+
+.privacy-section ul li {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.privacy-section ul li::marker {
+    color: var(--construction-primary);
+}
+
+.contact-details {
+    background: var(--bg-primary);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    margin-top: 16px;
+}
+
+.contact-details p {
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.effective-date {
+    text-align: center;
+    font-style: italic;
+    color: var(--text-muted);
+    background: var(--bg-primary);
+    padding: 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+/* Privacy Policy Responsive */
+@media (max-width: 768px) {
+    .privacy-content {
+        padding: 60px 0;
+    }
+    
+    .privacy-section {
+        padding: 20px;
+        margin-bottom: 24px;
+    }
+    
+    .privacy-section h2 {
+        font-size: 1.5rem;
+    }
+}
+
 /* Footer Responsive */
 @media (max-width: 768px) {
     .footer {
