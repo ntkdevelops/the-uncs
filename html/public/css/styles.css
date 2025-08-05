@@ -289,7 +289,7 @@ section p {
 }
 
 .btn-secondary:hover {
-    color: white;
+    color: var(--construction-primary);
     border-color: var(--construction-secondary);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px var(--shadow-medium);
@@ -458,7 +458,7 @@ p {
 /* Perfect Image Alignment */
 img {
     max-width: 100%;
-    height: auto;
+    /* height: auto; */
     display: block;
 }
 
@@ -637,6 +637,22 @@ nav {
 .logo:hover {
     transform: scale(1.05);
     filter: brightness(1.2);
+}
+
+#logo:hover {
+    animation: logoAnimation 4s forwards;
+}
+
+@keyframes logoAnimation{
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: rotateY(180deg);
+    }
+    100% {
+        transform: rotateY(0deg);
+    }
 }
 
 /* Navigation Links */
@@ -1148,6 +1164,63 @@ nav {
     color: white;
     position: relative;
     overflow: hidden;
+}
+
+/* Features Grid Styling */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.feature {
+    background: var(--bg-primary);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid var(--border-color);
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 20px var(--shadow-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-construction);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+}
+
+.feature:hover::before {
+    transform: scaleX(1);
+}
+
+.feature:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px var(--shadow-medium);
+    border-color: var(--construction-primary);
+}
+
+.feature h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--heading-primary);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+}
+
+.feature p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 1rem;
 }
 
 .why-choose-us::before {
@@ -1744,13 +1817,14 @@ nav {
 .stat-item {
     text-align: center;
     padding: 32px 24px;
-    background: var(--overlay-subtle);
+    background: var(--bg-primary);
     border-radius: 20px;
     backdrop-filter: blur(10px);
-    border: 1px solid var(--overlay-subtle);
+    border: 2px solid var(--border-color);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 20px var(--shadow-light);
 }
 
 .stat-item::before {
@@ -1759,19 +1833,21 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, var(--overlay-subtle) 0%, var(--overlay-subtle) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    height: 4px;
+    background: var(--gradient-construction);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
 }
 
 .stat-item:hover::before {
-    opacity: 1;
+    transform: scaleX(1);
 }
 
 .stat-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px var(--shadow-medium);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px var(--shadow-medium);
+    border-color: var(--construction-primary);
 }
 
 .stat-number {
@@ -1785,10 +1861,11 @@ nav {
 
 .stat-label {
     font-size: 16px;
-    color: var(--overlay-medium);
+    color: var(--text-secondary);
     font-weight: 500;
     position: relative;
     z-index: 1;
+    line-height: 1.4;
 }
 
 /* Testimonials Section */
@@ -2078,7 +2155,8 @@ nav {
     
     .services-grid,
     .values-grid,
-    .team-grid {
+    .team-grid,
+    .features-grid {
         grid-template-columns: 1fr;
         gap: 30px;
     }
@@ -2362,6 +2440,11 @@ nav {
     gap: 0.5rem;
     margin-bottom: 0.8rem;
     color: var(--text-secondary);
+}
+.contact-info a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: var(--transition-smooth);
 }
 
 .contact-info i {
