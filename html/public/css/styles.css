@@ -1294,6 +1294,94 @@ nav {
     border: 1px solid var(--border-color);
 }
 
+/* Our Services Section */
+.our-services {
+    padding: 100px 0;
+    background: var(--bg-primary);
+    position: relative;
+}
+
+.our-services h2 {
+    text-align: center;
+    font-size: 2.75rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.our-services .section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.service-item {
+    background: var(--bg-primary);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px solid var(--border-color);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-primary);
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-item:hover::before {
+    left: 0;
+}
+
+.service-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px var(--shadow-medium);
+    border-color: var(--construction-primary);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.service-item h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--heading-primary);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+}
+
+.service-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
 /* About Page Styles */
 .about-story {
     padding: 100px 0;
@@ -1973,6 +2061,19 @@ nav {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .service-item {
+        padding: 30px 20px;
+    }
+    
+    .our-services h2 {
+        font-size: 2.2rem;
     }
 
   
