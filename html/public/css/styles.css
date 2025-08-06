@@ -2292,7 +2292,7 @@ nav {
     
     .nav-links {
         position: fixed;
-        top: 160px;
+        top: 7.5em;
         left: -100%;
         width: 100%;
         height: calc(100vh - 80px);
