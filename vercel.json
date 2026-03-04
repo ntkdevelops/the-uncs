@@ -7,6 +7,14 @@
       "destination": "/api/index"
     },
     {
+      "source": "/notion",
+      "destination": "/notion/index.html"
+    },
+    {
+      "source": "/notion/(.*)",
+      "destination": "/notion/$1"
+    },
+    {
       "source": "/(.*)",
       "destination": "/html/public/$1"
     }

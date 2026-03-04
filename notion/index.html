@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imperium</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <button class="sidebar-toggle" id="sidebarToggle" title="Toggle sidebar (Ctrl+/)">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M2 3h12v1.5H2zm0 4h12v1.5H2zm0 4h12v1.5H2z"/></svg>
+        </button>
+        <span class="sidebar-title">Imperium</span>
+      </div>
+
+      <div class="sidebar-search">
+        <input type="text" id="searchInput" placeholder="Search pages..." autocomplete="off">
+      </div>
+
+      <div class="sidebar-actions">
+        <button id="newPageBtn" class="sidebar-btn" title="New page (Ctrl+N)">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+          <span>New Page</span>
+        </button>
+      </div>
+
+      <div class="sidebar-section" id="favoritesSection" style="display:none;">
+        <div class="sidebar-section-header">Favorites</div>
+        <div class="sidebar-page-list" id="favoritesList"></div>
+      </div>
+
+      <div class="sidebar-section">
+        <div class="sidebar-section-header">Pages</div>
+        <div class="sidebar-page-list" id="pageTree"></div>
+      </div>
+
+      <div class="sidebar-section" id="trashSection">
+        <div class="sidebar-section-header sidebar-trash-header" id="trashToggle">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d="M3 4h8l-.7 8.1a1 1 0 01-1 .9H4.7a1 1 0 01-1-.9L3 4zm1-2h6v1.5H4V2zm-1.5 1.5h9"/></svg>
+          <span>Trash</span>
+        </div>
+        <div class="sidebar-page-list" id="trashList" style="display:none;"></div>
+      </div>
+
+      <div class="sidebar-resize-handle" id="sidebarResizeHandle"></div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content" id="mainContent">
+      <div class="page-header" id="pageHeader">
+        <div class="page-breadcrumbs" id="breadcrumbs"></div>
+        <div class="page-title-row">
+          <button class="page-icon-btn" id="pageIconBtn" title="Change icon"></button>
+          <h1 class="page-title" id="pageTitle" contenteditable="true" spellcheck="false" data-placeholder="Untitled"></h1>
+        </div>
+        <div class="page-actions">
+          <button class="page-action-btn" id="favoriteBtn" title="Add to favorites">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l2 4 4.5.7-3.2 3.1.8 4.5L8 11.5l-4.1 2.3.8-4.5L1.5 6.2 6 5.5z"/></svg>
+          </button>
+          <button class="page-action-btn" id="pageTypeToggle" title="Switch to kanban">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="2" width="4" height="12" rx="1"/><rect x="6" y="2" width="4" height="8" rx="1"/><rect x="11" y="2" width="4" height="10" rx="1"/></svg>
+          </button>
+          <button class="page-action-btn" id="themeToggle" title="Toggle theme (Ctrl+Shift+D)">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm0 12.5V2.5a5.5 5.5 0 010 11z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="page-body" id="pageBody">
+        <!-- Editor blocks or kanban board rendered here -->
+        <div class="empty-state" id="emptyState">
+          <div class="empty-state-icon">📝</div>
+          <h2>No page selected</h2>
+          <p>Select a page from the sidebar or create a new one.</p>
+          <button class="btn-primary" id="emptyNewPageBtn">Create a page</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Context menu -->
+  <div class="context-menu" id="contextMenu" style="display:none;"></div>
+
+  <!-- Slash command menu -->
+  <div class="slash-menu" id="slashMenu" style="display:none;">
+    <div class="slash-menu-search">
+      <input type="text" id="slashMenuInput" placeholder="Filter..." autocomplete="off">
+    </div>
+    <div class="slash-menu-items" id="slashMenuItems"></div>
+  </div>
+
+  <!-- Floating toolbar -->
+  <div class="floating-toolbar" id="floatingToolbar" style="display:none;">
+    <button data-command="bold" title="Bold (Ctrl+B)"><b>B</b></button>
+    <button data-command="italic" title="Italic (Ctrl+I)"><i>I</i></button>
+    <button data-command="underline" title="Underline (Ctrl+U)"><u>U</u></button>
+    <button data-command="strikeThrough" title="Strikethrough"><s>S</s></button>
+    <button data-command="code" title="Inline code (Ctrl+E)"><code>&lt;/&gt;</code></button>
+    <button data-command="link" title="Link (Ctrl+K)">🔗</button>
+  </div>
+
+  <!-- Card detail modal -->
+  <div class="modal-overlay" id="cardModal" style="display:none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Card Details</h2>
+        <button class="modal-close" id="cardModalClose">&times;</button>
+      </div>
+      <div class="modal-body" id="cardModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Emoji picker -->
+  <div class="emoji-picker" id="emojiPicker" style="display:none;"></div>
+
+  <!-- Toast container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/commands.js"></script>
+  <script src="js/editor.js"></script>
+  <script src="js/kanban.js"></script>
+  <script src="js/dragdrop.js"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

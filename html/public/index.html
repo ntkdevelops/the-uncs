@@ -3,243 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G&J Home Services</title>
-    
-    <link rel="stylesheet" href="https://gjhomeservices.ca/css/styles.css">
+    <title>G&J Home Services | Construction & Home Care in Barrie, ON</title>
+    <meta name="description" content="Professional construction, renovation, and home care services in Barrie, Ontario. Licensed, insured, and trusted for over 15 years.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <header>
         <div class="container">
             <nav>
-            <div class="logo">
-                <a href="https://gjhomeservices.ca"><img src="https://gjhomeservices.ca/img/logo.png" height="100px" alt="GJ Home Services" id="logo"></a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="https://gjhomeservices.ca">Home</a></li>
-                <li><a href="https://gjhomeservices.ca/construction">Construction</a></li>
-                <li><a href="https://gjhomeservices.ca/home-care">Home Care</a></li>
-                <li><a href="https://gjhomeservices.ca/about">About Us</a></li>
-                <li><a href="https://gjhomeservices.ca/projects">Projects</a></li>
-                <li><a href="https://gjhomeservices.ca/contact">Contact</a></li>
-            </ul>
-            <div class="header-actions">
-                <div class="theme-switch" id="themeToggle" aria-label="Toggle dark mode">
-                    <input type="checkbox" class="theme-switch-checkbox" id="themeSwitchCheckbox">
-                    <label class="theme-switch-label" for="themeSwitchCheckbox">
-                        <span class="theme-switch-slider">
-                            <span class="theme-icon light-icon">☀️</span>
-                            <span class="theme-icon dark-icon">🌙</span>
-                        </span>
-                    </label>
+                <div class="logo">
+                    <a href="/"><img src="/img/logo.png" height="50" alt="G&J Home Services" id="logo"></a>
                 </div>
-                <a href="https://gjhomeservices.ca/contact" class="btn-primary btn-header">Free Estimate</a>
-            </div>
-            <div class="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/construction">Construction</a></li>
+                    <li><a href="/home-care">Home Care</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+                <div class="header-actions">
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
         </div>
     </header>
-    
 
-<!-- Hero Section -->
-<section class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1>Professional Construction & Home Care Services</h1>
-            <p>G&J Customer Services — We're here for all your home renovations and repairs.
-Restoration, construction, fencing, decking, and all types of landscaping — our customer service team is available 24/7 to give you the best care.</p>
-            <div class="hero-buttons">
-                <a href="https://gjhomeservices.ca/contact" class="btn-primary">Get Free Estimate</a>
-                <a href="https://gjhomeservices.ca/projects" class="btn-secondary">View Our Work</a>
+    <!-- Hero Gallery -->
+    <section class="hero hero-gallery">
+        <div class="hero-slides">
+            <div class="hero-slide active" style="background-image: url('https://i.imgur.com/ALJn1sz.png')"></div>
+            <div class="hero-slide" style="background-image: url('https://i.imgur.com/xvwBlF8.png')"></div>
+            <div class="hero-slide" style="background-image: url('https://i.imgur.com/xwKeKzb.png')"></div>
+            <div class="hero-slide" style="background-image: url('https://i.imgur.com/aSK15R2.png')"></div>
+        </div>
+        <div class="hero-grain"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag">Barrie, Ontario</div>
+                <h1>We Build<br><span class="hero-accent">What Lasts</span></h1>
+                <p>Construction, renovation, fencing, decking, and landscaping. Our crew delivers results you can stand on -- around the clock.</p>
+                <div class="hero-buttons">
+                    <a href="/contact" class="btn-primary">Get Free Estimate</a>
+                    <a href="/projects" class="btn-secondary">View Our Work</a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- UPDATING  -->
-<section class="services"> 
-    <div class="container">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🏗️</div>
-                <h3>Construction</h3>
-                <p>New builds, additions, and structural work with quality craftsmanship and attention to detail.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔨</div>
-                <h3>Renovations</h3>
-                <p>Transform your space with our expert renovation services for kitchens, bathrooms, and more.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🏠</div>
-                <h3>Home Maintenance</h3>
-                <p>Regular upkeep and repairs to keep your home in perfect condition year-round.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">⚡</div>
-                <h3>Emergency Repairs</h3>
-                <p>24/7 emergency services for urgent home repairs and maintenance issues.</p>
-            </div>
+        <div class="hero-indicators">
+            <button class="hero-indicator active" data-slide="0" aria-label="Slide 1"></button>
+            <button class="hero-indicator" data-slide="1" aria-label="Slide 2"></button>
+            <button class="hero-indicator" data-slide="2" aria-label="Slide 3"></button>
+            <button class="hero-indicator" data-slide="3" aria-label="Slide 4"></button>
         </div>
-    </div>
-</section>
+        <div class="hero-scroll-hint">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
 
-<!-- Featured Work Examples Section -->
-<section class="featured-work">
-    <div class="container">
-        <h2>Our Recent Projects</h2>
-        <p class="section-subtitle">Transforming homes and building dreams with quality craftsmanship</p>
-        <div class="work-gallery">
-            <div class="work-item">
-                <div class="work-image">
-                    <div class="placeholder-work">🏠 Kitchen Renovation</div>
-                </div>
-                <div class="work-info">
-                    <h3>Modern Kitchen Remodel</h3>
-                    <p>Complete kitchen transformation with custom cabinets and granite countertops</p>
-                    <span class="work-category">Home Care</span>
-                </div>
+    <!-- Services -->
+    <section class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">What We Do</span>
+                <h2 class="section-title">Our Services</h2>
             </div>
-            <div class="work-item">
-                <div class="work-image">
-                    <div class="placeholder-work">🏗️ New Basement Construction</div>
+            <p class="section-subtitle">Quality craftsmanship for every aspect of your home, from new builds to ongoing maintenance.</p>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <span class="card-number">01</span>
+                    <div class="card-line"></div>
+                    <h3>Construction</h3>
+                    <p>New builds, additions, and structural work with quality craftsmanship and attention to detail.</p>
                 </div>
-                <div class="work-info">
-                    <h3>Custom Home Build</h3>
-                    <p>Professionally finished basement with modern features, added living space, and superior insulation</p>                    <span class="work-category">Construction</span>
+                <div class="service-card reveal">
+                    <span class="card-number">02</span>
+                    <div class="card-line"></div>
+                    <h3>Renovations</h3>
+                    <p>Transform your space with expert renovation services for kitchens, bathrooms, and more.</p>
                 </div>
-            </div>
-            <div class="work-item">
-                <div class="work-image">
-                    <div class="placeholder-work">🛁 Bathroom Upgrade</div>
+                <div class="service-card reveal">
+                    <span class="card-number">03</span>
+                    <div class="card-line"></div>
+                    <h3>Home Maintenance</h3>
+                    <p>Regular upkeep and repairs to keep your home in perfect condition year-round.</p>
                 </div>
-                <div class="work-info">
-                    <h3>Luxury Bathroom Suite</h3>
-                    <p>Spa-like bathroom renovation with premium fixtures and tile work</p>
-                    <span class="work-category">Home Care</span>
-                </div>
-            </div>
-            <div class="work-item">
-                <div class="work-image">
-                    <div class="placeholder-work">🔧 Home Maintenance</div>
-                </div>
-                <div class="work-info">
-                    <h3>Comprehensive Home Care</h3>
-                    <p>Regular maintenance services keeping homes in perfect condition</p>
-                    <span class="work-category">Maintenance</span>
+                <div class="service-card reveal">
+                    <span class="card-number">04</span>
+                    <div class="card-line"></div>
+                    <h3>Emergency Repairs</h3>
+                    <p>24/7 emergency services for urgent home repairs and maintenance issues.</p>
                 </div>
             </div>
         </div>
-        <div class="work-cta">
-            <a href="https://gjhomeservices.ca/projects" class="btn-primary">View All Projects</a>
-            <a href="https://gjhomeservices.ca/construction" class="btn-secondary">Construction Services</a>
-            <a href="https://gjhomeservices.ca/home-care" class="btn-secondary">Home Care Services</a>
-        </div>
-    </div>
-</section>
+    </section>
 
-<!-- Our Services Section -->
-<section class="our-services">
-    <div class="container">
-        <h2>Our Specialized Services</h2>
-        <p class="section-subtitle">Comprehensive construction and home improvement solutions</p>
-        <div class="services-grid">
-            <div class="service-item">
-                <div class="service-icon">🌿</div>
-                <h3>Landscaping & Yard Work</h3>
-                <p>Complete yard transformation with garden design, lawn care, and outdoor beautification</p>
+    <!-- Featured Work -->
+    <section class="featured-work">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Portfolio</span>
+                <h2 class="section-title">Recent Projects</h2>
             </div>
-            <div class="service-item">
-                <div class="service-icon">🏗️</div>
-                <h3>Fence & Deck Construction</h3>
-                <p>Quality fence installation and deck construction for enhanced outdoor living spaces</p>
-            </div>
-            <div class="service-item">
-                <div class="service-icon">🏠</div>
-                <h3>Concrete Patio</h3>
-                <p>Durable and stylish concrete patios designed for long-lasting outdoor entertainment</p>
-            </div>
-            <div class="service-item">
-                <div class="service-icon">🏺</div>
-                <h3>Tile & Flooring</h3>
-                <p>Expert installation of tiles and flooring solutions for beautiful interior spaces</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Why Choose Us Section -->
-<section class="why-choose-us">
-    <div class="container">
-        <div class="content-wrapper">
-            <div class="text-content">
-                <h2>Why Choose G&J Home Services?</h2>
-                <ul class="benefits-list">
-                    <li>✓ Licensed and insured professionals</li>
-                    <li>✓ 15+ years of construction experience</li>
-                    <li>✓ Quality materials and workmanship</li>
-                    <li>✓ Competitive pricing and free estimates</li>
-                    <li>✓ Satisfaction guarantee on all work</li>
-                </ul>
-                <a href="https://gjhomeservices.ca/contact" class="btn-primary">Contact Us Today</a>
-            </div>
-            <div class="image-content">
-                <div class="placeholder-image">Construction Team at Work</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Testimonials Section -->
-<section class="testimonials">
-    <div class="container">
-        <h2>What Our Clients Say</h2>
-        <p class="section-subtitle">Real feedback from satisfied customers</p>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <p>"G&J Home Services transformed our kitchen beyond our expectations. Professional, timely, and excellent quality work. Highly recommended!"</p>
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-info">
-                        <h4>Sarah Johnson</h4>
-                        <span>Kitchen Renovation</span>
+            <p class="section-subtitle">Transforming homes and building dreams with quality craftsmanship.</p>
+            <div class="work-gallery">
+                <div class="work-item reveal">
+                    <div class="work-image">
+                        <div class="placeholder-work">Kitchen Renovation</div>
                     </div>
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                    <div class="work-info">
+                        <h3>Modern Kitchen Remodel</h3>
+                        <p>Complete kitchen transformation with custom cabinets and granite countertops.</p>
+                        <span class="work-category">Home Care</span>
+                    </div>
+                </div>
+                <div class="work-item reveal">
+                    <div class="work-image">
+                        <div class="placeholder-work">Basement Finishing</div>
+                    </div>
+                    <div class="work-info">
+                        <h3>Custom Basement Build</h3>
+                        <p>Professionally finished basement with modern features and superior insulation.</p>
+                        <span class="work-category">Construction</span>
+                    </div>
+                </div>
+                <div class="work-item reveal">
+                    <div class="work-image">
+                        <div class="placeholder-work">Bathroom Upgrade</div>
+                    </div>
+                    <div class="work-info">
+                        <h3>Luxury Bathroom Suite</h3>
+                        <p>Spa-like bathroom renovation with premium fixtures and tile work.</p>
+                        <span class="work-category">Home Care</span>
+                    </div>
+                </div>
+                <div class="work-item reveal">
+                    <div class="work-image">
+                        <div class="placeholder-work">Home Maintenance</div>
+                    </div>
+                    <div class="work-info">
+                        <h3>Comprehensive Home Care</h3>
+                        <p>Regular maintenance services keeping homes in perfect condition.</p>
+                        <span class="work-category">Maintenance</span>
+                    </div>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <p>"Outstanding construction work on our home addition. The team was professional, clean, and delivered exactly what was promised."</p>
-                </div>
-                <div class="testimonial-author">
-                    <div class="author-info">
-                        <h4>Mike Rodriguez</h4>
-                        <span>Home Addition</span>
-                    </div>
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
-                </div>
+            <div class="work-cta">
+                <a href="/projects" class="btn-primary">View All Projects</a>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <p>"Reliable home maintenance services that keep our property in perfect condition. Great communication and fair pricing."</p>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-us">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Why Us</span>
+                <h2 class="section-title">Why Choose G&J Home Services?</h2>
+            </div>
+            <p class="section-subtitle">Dedicated to excellence in every project we undertake.</p>
+            <div class="benefits-grid">
+                <div class="benefit-item reveal">
+                    <div class="benefit-number">01</div>
+                    <h3>Licensed & Insured</h3>
+                    <p>Fully licensed professionals with comprehensive insurance for your peace of mind.</p>
                 </div>
-                <div class="testimonial-author">
-                    <div class="author-info">
-                        <h4>Emily Chen</h4>
-                        <span>Home Maintenance</span>
-                    </div>
-                    <div class="rating">⭐⭐⭐⭐⭐</div>
+                <div class="benefit-item reveal">
+                    <div class="benefit-number">02</div>
+                    <h3>15+ Years Experience</h3>
+                    <p>Over a decade and a half of construction experience serving the Barrie community.</p>
+                </div>
+                <div class="benefit-item reveal">
+                    <div class="benefit-number">03</div>
+                    <h3>Quality Materials</h3>
+                    <p>We use only the highest quality materials and proven construction techniques.</p>
+                </div>
+                <div class="benefit-item reveal">
+                    <div class="benefit-number">04</div>
+                    <h3>Satisfaction Guaranteed</h3>
+                    <p>Competitive pricing, free estimates, and a satisfaction guarantee on all work.</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Testimonials</span>
+                <h2 class="section-title">What Our Clients Say</h2>
+            </div>
+            <p class="section-subtitle">Real feedback from satisfied customers.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-content">
+                        <p>G&J Home Services transformed our kitchen beyond our expectations. Professional, timely, and excellent quality work. Highly recommended!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <span>Kitchen Renovation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-content">
+                        <p>Outstanding construction work on our home addition. The team was professional, clean, and delivered exactly what was promised.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Mike Rodriguez</h4>
+                            <span>Home Addition</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-content">
+                        <p>Reliable home maintenance services that keep our property in perfect condition. Great communication and fair pricing.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Emily Chen</h4>
+                            <span>Home Maintenance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Get a free, no-obligation estimate for your next home improvement project.</p>
+                <a href="/contact" class="btn-primary">Get Your Free Estimate</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -247,57 +257,39 @@ Restoration, construction, fencing, decking, and all types of landscaping — ou
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>G&J Home Services</h3>
-                    <p>Professional construction and home maintenance services you can trust. Quality workmanship, reliable service, and customer satisfaction guaranteed.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                    </div>
+                    <p>Professional construction and home maintenance services you can trust. Quality workmanship and customer satisfaction guaranteed.</p>
                 </div>
-                
                 <div class="footer-section">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="https://gjhomeservices.ca/construction">Construction</a></li>
-                        <li><a href="https://gjhomeservices.ca#services">Renovations</a></li>
-                        <li><a href="https://gjhomeservices.ca/home-care">Home Maintenance</a></li>
-                        <li><a href="https://gjhomeservices.ca#services">Repairs</a></li>
+                        <li><a href="/construction">Construction</a></li>
+                        <li><a href="/home-care">Home Care</a></li>
+                        <li><a href="/projects">Our Projects</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-section">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="https://gjhomeservices.ca/about">About Us</a></li>
-                        <li><a href="https://gjhomeservices.ca/projects">Portfolio</a></li>
-                        <li><a href="https://gjhomeservices.ca#testimonials">Testimonials</a></li>
-                        <li><a href="https://gjhomeservices.ca/contact">Contact</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <div class="contact-info">
-                        <p><i class="fas fa-phone"></i> <a href="tel:+17056069579">+1(705) 606-9579</a></p>
-                        <p><i class="fas fa-envelope"></i> <a href="mailto:hgandjhomeservices2024@gmail.com">hgandjhomeservices2024@gmail.com</a></p>
-                        <p><i class="fas fa-map-marker-alt"></i> Barrie, ON, Canada</p>
+                    <h4>Get in Touch</h4>
+                    <div class="footer-contact">
+                        <p><a href="tel:+17056069579">+1 (705) 606-9579</a></p>
+                        <p><a href="mailto:hgandjhomeservices2024@gmail.com">hgandjhomeservices2024@gmail.com</a></p>
+                        <p>Barrie, ON, Canada</p>
                     </div>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <div class="footer-bottom-content">
-                    <p>&copy; 2025 GJ Home Services. All rights reserved.</p>
-                    <div class="footer-links">
-                        <a href="https://gjhomeservices.ca/privacy">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
-                        <a href="#">Cookie Policy</a>
-                    </div>
-                </div>
+                <p>2025 G&J Home Services. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://gjhomeservices.ca/js/main.js"></script>
+    <script src="/js/main.js"></script>
 </body>
 </html>
